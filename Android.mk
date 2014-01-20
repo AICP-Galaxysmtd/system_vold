@@ -72,9 +72,10 @@ common_static_libraries := \
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libvold
-LOCAL_SRC_FILES := $(common_src_files) $(extra_src_files)
+LOCAL_SRC_FILES := $(common_src_files)
 LOCAL_C_INCLUDES := $(common_c_includes)
-LOCAL_SHARED_LIBRARIES := $(common_libraries) libcrypto
+LOCAL_SHARED_LIBRARIES := $(common_shared_libraries)
+LOCAL_STATIC_LIBRARIES := $(common_static_libraries)
 LOCAL_CFLAGS := $(common_cflags)
 LOCAL_MODULE_TAGS := eng tests
 include $(BUILD_STATIC_LIBRARY)
@@ -84,8 +85,8 @@ LOCAL_MODULE:= vold
 LOCAL_SRC_FILES := vold.c
 LOCAL_C_INCLUDES := $(common_c_includes)
 LOCAL_CFLAGS := $(common_cflags)
-LOCAL_SHARED_LIBRARIES := $(common_libraries) libcrypto
-LOCAL_STATIC_LIBRARIES := libvold $(common_static_libraries)
+LOCAL_SHARED_LIBRARIES := $(common_shared_libraries)
+LOCAL_STATIC_LIBRARIES := $(common_static_libraries)
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
